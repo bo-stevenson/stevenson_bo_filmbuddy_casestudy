@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pub/css/register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/9719aa7074.js"></script>
+    <title>register</title>
+    
+
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <img src="pub/images/film-icon.png">
+            <a class="brand" href="index.html">FilmBuddy</a>
+            <div class="nav-links" id="navLinks">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="login-box">
+            <img src="pub/images/user-icon.jpg" class="avatar">
+            <h1>Sign up</h1>
+            
+            <form class="form" id="form">
+                    
+                        <label>First Name</label>
+                        <input type="text" placeholder="First Name" id="firstName">
+                        <div class="error" id="errorFirstName"></div>
+                    
+        
+                    
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Last Name" id="lastName">
+                        <div class="error" id="errorLastName"></div>
+                    
+        
+                    
+                        <label>Email</label>
+                        <input type="text" placeholder="Email" id="email">
+                        <div class="error" id="errorEmail"></div>
+                   
+        
+                   
+                        <label>Password</label>
+                        <input type="password" placeholder="Password" id="password">
+                        <div class="error" id="errorPassword"></div>
+                   
+        
+                    
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Confirm Password" id="confirmPassword">
+                        <div class="error" id="errorConfirmPassword"></div>
+        
+                    <button class="button" type="submit" onclick="mainValidateFunction()">Submit</button>
+
+                <p>Have an account already? <a href="login.html">Log in</a></p>
+                
+            </form>
+        </div>
+
+    </section>
+
+    
+    <section class="footer">
+        <h4>Follow us on these platforms to keep up-to-date!</h4>
+        <div class="icons">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-linkedin"></i>
+        </div>
+        <p></p>
+
+
+    </section>
+    
+    <script src="pub/js/validate.js"></script>
+    
+</body>
+</html>
+
