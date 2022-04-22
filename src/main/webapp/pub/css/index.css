@@ -21,6 +21,21 @@ nav{
     align-items: center;
 }
 
+.container{
+    justify-content: center;
+    text-align: center;
+}
+.row{
+    align-content: center;
+    justify-items: center;
+}
+.column{
+    height: 500px;
+    padding-left: 400px;
+   align-content: center;
+    justify-items: center;
+}
+
 .brand{
     color:#ffff;
     text-decoration: none;

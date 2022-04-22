@@ -1,12 +1,15 @@
-package teksystems.casestudy.database.dao;
+package com.teksystems.casestudy.database.dao;
 
 
+import com.teksystems.casestudy.database.entity.UserRole;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.util.Assert;
-import teksystems.casestudy.database.entity.User;
+import com.teksystems.casestudy.database.entity.User;
+
+import java.util.Date;
+import java.util.List;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -15,6 +18,7 @@ public class UserDAOTest {
 
     @Autowired UserDAO userDAO;
 
+    @Autowired UserRoleDAO userRoleDAO;
 
     @Test
     @Order(1)
@@ -26,4 +30,46 @@ public class UserDAOTest {
     User actual = userDAO.findById(1);
     Assertions.assertEquals(expected.getId(), actual.getId());
     }
+
+    @Test
+    @Order(2)
+    public void createUserTest(){
+        User expected = new User();
+
+        expected.setId(1);
+        expected.setFirstName("goofy");
+        expected.setLastName("guy");
+        expected.setEmail("fellasmella@gmail.com");
+        expected.setPassword("password");
+        expected.setCreateDate(new Date());
+
+        userDAO.save(expected);
+        Assertions.assertTrue(expected.getId()>0);
+    }
+
+    @Test
+    public void updateUserTest(){
+
+        User actual = userDAO.findById(1);
+        actual.setFirstName("updated");
+        Assertions.assertEquals("updated", actual.getFirstName());
+    }
+
+
+    @Test
+    public void deleteUserTest(){
+
+        User actual = userDAO.findById(1);
+        List<UserRole> roles = userRoleDAO.findByUserId(1);
+
+        for(UserRole role: roles) {
+            userRoleDAO.delete(role);
+        }
+
+        userDAO.delete(actual);
+        Assertions.assertNull(userDAO.findById(1));
+    }
+
+
 }
+

@@ -14,9 +14,19 @@
 
 </section>
 
-<c:if test="${fn:contains(pageContext.request.requestURI, '/index')}">
-    <script src="pub/js/index.js"></script>
-</c:if>
+<c:choose>
+    <c:when test="${fn:contains(pageContext.request.requestURI, '/index')}">
+        <script src="pub/js/index.js"></script>
+    </c:when>
+    <c:when test="${fn:contains(pageContext.request.requestURI, '/user/profile')}">
+        <script src="../../../pub/js/profile.js"></script>
+        <script src="../../../pub/js/index.js"></script>
+    </c:when>
+    <c:otherwise>
+        <script src="../pub/js/index.js"></script>
+    </c:otherwise>
+</c:choose>
+
 
 </body>
 </html>

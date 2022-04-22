@@ -26,8 +26,7 @@
     }
 
     /*************swing************/
-    @
-    keyframes swing { 0% {
+    @keyframes swing { 0% {
         transform: rotate(10deg);
     }
 
@@ -43,8 +42,7 @@
     }
 
     /*************swing hair************/
-    @
-    keyframes swinghair { 0% {
+    @keyframes swinghair { 0% {
         transform: rotate(6deg);
     }
     100
@@ -62,7 +60,7 @@
 <a href="/index">
     <div class="container">
         <div class="row ">
-            <div class="col-12 mt-5 mb-5 d-flex justify-content-center">
+            <div class="column">
                 <svg width="75%" height="auto" viewBox="0 0 636 324" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="OBJECTS">
                         <g id="Group">
@@ -563,6 +561,7 @@
         </div>
     </div>
 </a>
+</section>
 
 
 <jsp:include page="../include/footer.jsp" />

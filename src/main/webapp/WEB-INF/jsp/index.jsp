@@ -3,7 +3,7 @@
 
 
     <div class="text-box">
-        <h1>Welcome to FilmBuddy</h1>
+        <h1>Welcome to FilmBuddies</h1>
         <p>Share and review your favorite movies with friends. Sign up here to get started!</p>
         <a href="/user/register" class="hero-btn">Sign Up</a>
         <small>OR</small>
@@ -13,13 +13,13 @@
 
 <section class="about">
     <h1>How it Works</h1>
-    <p>There are many ways to use FilmBuddy!</p>
+    <p>There are many ways to use FilmBuddies!</p>
 
     <div class="row">
         <div class="about-col">
             <img src="pub/images/guy-watching-movie.jpg">
             <h3>Track what you watch</h3>
-            <p>With FilmBuddy you can make a log of what movies you have been watching.</p>
+            <p>With FilmBuddies you can make a log of what movies you have been watching.</p>
         </div>
 
         <div class="about-col">

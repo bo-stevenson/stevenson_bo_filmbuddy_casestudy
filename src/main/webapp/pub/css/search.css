@@ -2,6 +2,7 @@
     margin:0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 
 }
 .header{
@@ -11,7 +12,25 @@
     background-position: center;
     background-size: cover;
     position: relative;
-    
+
+}
+.row{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+form{
+    color: white;
+    text-align: center;
+
+}
+
+.error{
+    color: #EB1B2F;
+    font-size: 18px;
+}
+.success{
+    color: green;
+    font-size: 18px;
 }
 
 nav{
@@ -25,11 +44,11 @@ nav{
     color:#ffff;
     text-decoration: none;
     font-size: 36px;
-    
+
 }
 nav img{
-   width: 80px; 
-   
+    width: 80px;
+
 }
 
 .nav-links{
@@ -65,85 +84,106 @@ nav img{
     width: 100%;
 
 }
+.table-container{
 
-.login-box{
-    width:320px;
-    height:420px;
-    background: #fff;
-    color:black;
-    top: 50%;
-    left:50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    box-sizing: border-box;
-    padding: 70px 30px;
-    border-radius: 10px;
-
+    padding: 0 10%;
+    margin: 40px auto 0;
 }
-
-h1{
-    margin: 0;
-    padding: 0 0 20px;
+.table{
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.35px;
+    padding: 12px;
+    vertical-align: top;
+}
+.table td{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    font-weight: normal;
+    padding: 8px;
     text-align: center;
-    font-size: 22px;
-}
-
-.login-box input{
-    width: 90%;
-    margin-bottom: 20px;
-}
-
-.login-box i{
-    width: 5%;
-    color: #EB1B2F;
-}
-
-.login-box input[type="text"], [type="password"]{
-    height: 40px;
-    font-size: 16px;
 }
 
 .btn{
+    color: white;
+    width: 130px;
+    text-decoration: none;
+    line-height: 35px;
+    display: block;
     background-color: #EB1B2F;
-    width: 100%;
-    border: none;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 18px;
-    border-radius: 20px;
-    transition: 0.5s;
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
 }
-.btn:hover{
-    background-color: transparent;
-    border: 1px solid #EB1B2F;
-    color: #EB1B2F;
-    cursor: pointer;
+nav .fa{
+    display: none;
 }
 
 
-.avatar{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
+
+
+@media(max-width:768px){
+
+    .table th{
+        display: none;
+    }
+    .table, .table tr, .table td{
+        display: block;
+        width: 100%;
+    }
+
+    .nav-links ul li{
+        display: block;
+    }
+
+    .nav-links{
+        position: absolute;
+        background-color: #EB1B2F;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 0.5s;
+
+    }
+
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor:pointer;
+    }
+
+    .nav-links ul{
+        padding: 30px;
+    }
+
 }
 
-form p{
-    margin-top: 15px;
-    font-size: 14px;
-    width: 100%;
+
+h1{
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
 
 }
 
-form a{
-    color: #EB1B2F;
-    cursor:pointer;
-    
+h3{
+    color: white;
+    font-weight: 600;
+    margin: 5px 0;
 }
-
 
 .footer{
     width: 100%;

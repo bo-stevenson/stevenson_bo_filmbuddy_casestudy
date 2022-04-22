@@ -4,12 +4,12 @@
     <img src="../pub/images/user-icon.jpg" class="avatar">
     <h1>Log in</h1>
 
-    <form action="/login/login" method="POST" class="form">
+    <form action="/login/loginSubmit" method="POST" class="form">
         <i class="fa fa-envelope"></i>
-        <input type="text" name="email" placeholder="Enter email">
+        <input type="text" name="username" placeholder="Enter email">
         <br>
         <i class="fa fa-lock"></i>
-        <input type="text" name="password" placeholder="Enter password">
+        <input type="password" name="password" placeholder="Enter password">
 
         <button class="btn" type="submit">Submit</button>
 

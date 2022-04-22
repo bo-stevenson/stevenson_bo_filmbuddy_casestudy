@@ -26,25 +26,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/pub/**", "/error/**", "/login/**", "/index", "/user/**").permitAll()
-                .antMatchers("/admin/**", "/cart/**").authenticated()
-                .and()
+                    .antMatchers("/pub/**", "/error/**", "/login/**", "/index", "/user/**").permitAll()
+                    .antMatchers("/admin/**", "/cart/**", "/movie/**").authenticated()
+                    .and()
                 .formLogin()
-                // this is the URL of the login page
-                .loginPage("/login/login")
-                // this is the URL where the login page will submit
-                .loginProcessingUrl("/login/loginSubmit")
-                .defaultSuccessUrl("/index")
-                .and()
+                    // this is the URL of the login page
+                    .loginPage("/login/login")
+                    // this is the URL where the login page will submit
+                    .loginProcessingUrl("/login/loginSubmit")
+                    .defaultSuccessUrl("/user/profile")
+                    .and()
                 .logout()
-                .invalidateHttpSession(true)
-                // this is the URL to log the user out
-                .logoutUrl("/login/logout")
-                // the URL that the user goes to after they logout
-                .logoutSuccessUrl("/index")
-                .and()
+                    .invalidateHttpSession(true)
+                    // this is the URL to log the user out
+                    .logoutUrl("/login/logout")
+                    // the URL that the user goes to after they logout
+                    .logoutSuccessUrl("/index")
+                    .and()
                 .exceptionHandling()
-                .accessDeniedPage("/error/404");
+                    .accessDeniedPage("/error/404");
     }
     @Bean(name="passwordEncoder")
     public PasswordEncoder getPasswordEncoder() {

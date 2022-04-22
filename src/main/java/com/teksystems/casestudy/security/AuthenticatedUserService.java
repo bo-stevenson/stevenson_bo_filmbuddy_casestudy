@@ -56,6 +56,7 @@ public class AuthenticatedUserService {
         return user;
     }
 
+
     public boolean isAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {
