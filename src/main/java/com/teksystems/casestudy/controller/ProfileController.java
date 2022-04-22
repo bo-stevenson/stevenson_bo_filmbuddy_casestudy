@@ -41,12 +41,6 @@ public class ProfileController {
         }
         log.info(userMovies.toString());
 
-        //Get users followed
-        List<User> following = new ArrayList<>();
-        for(Follower f : loggedInUser.getFollowing()){
-            following.add(f.getUserFollowed());
-        }
-
 
         //Get Followers
         List<User> followers = new ArrayList<>();
@@ -64,7 +58,6 @@ public class ProfileController {
         response.addObject("firstName", firstName);
         response.addObject("lastName", lastName);
         response.addObject("followers",followers);
-        response.addObject("following",following);
 
         response.setViewName("user/profile");
         return response;

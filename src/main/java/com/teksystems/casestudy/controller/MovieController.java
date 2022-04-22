@@ -114,6 +114,7 @@ public class MovieController {
         log.info(form.toString());
 
 
+
         if (bindingResult.hasErrors()) {
 
             for (ObjectError error : bindingResult.getAllErrors()) {
@@ -134,7 +135,7 @@ public class MovieController {
         // we first assume that we are going to try to load the user from
         // the database using the incoming id on the form
         Movie movie = movieDAO.findById(form.getId());
-        movieDAO.delete(movie);
+
         // if the user is not null the know it is an edit
         if (movie == null) {
             // now, if the user from the database is null then it means we did not
@@ -142,7 +143,7 @@ public class MovieController {
             movie = new Movie();
         }
 
-
+        movie.setId(form.getId());
         movie.setTitle(form.getTitle());
         movie.setDescription(form.getDescription());
         movie.setGenre(form.getGenre());
@@ -152,9 +153,8 @@ public class MovieController {
         log.info(form.toString());
         String successMessage = "Movie has been added successfully!";
 
-        response.addObject("successMessage", successMessage);
         response.setViewName("redirect:/movie/search/");
-
+        response.addObject("successMessage", successMessage);
         return response;
     }
 
@@ -183,8 +183,8 @@ public class MovieController {
     }
 
 
-    @GetMapping("/movie/delete/{movieId}")
-    public ModelAndView deleteMovieFromFavorite(@PathVariable("movieId") Integer movieId) throws Exception {
+    @GetMapping("/movie/remove/{movieId}")
+    public ModelAndView removeMovieFromFavorite(@PathVariable("movieId") Integer movieId) throws Exception {
         ModelAndView response = new ModelAndView();
 
 
@@ -198,6 +198,28 @@ public class MovieController {
         }
 
         response.setViewName("redirect:/user/profile");
+        return response;
+    }
+
+    @GetMapping("/movie/delete/{movieId}")
+    public ModelAndView deleteMovie(@PathVariable("movieId") Integer movieId) throws Exception {
+        ModelAndView response = new ModelAndView();
+
+        Movie movie = movieDAO.findById(movieId);
+        List<UserMovies> userMovies = userMoviesDAO.findByMovieId(movieId);
+
+        for(UserMovies um : userMovies){
+            userMoviesDAO.delete(um);
+        }
+        if (movie.getId() == movieId){
+            movieDAO.delete(movie);
+
+            String successMessage = "Movie has been removed successfully!";
+
+            response.addObject("successMessage", successMessage);
+        }
+
+        response.setViewName("/movie/movieSearch");
         return response;
     }
 

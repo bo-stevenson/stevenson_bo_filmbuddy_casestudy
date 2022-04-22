@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login/login")
                     // this is the URL where the login page will submit
                     .loginProcessingUrl("/login/loginSubmit")
-                    .defaultSuccessUrl("/user/profile")
+                    .defaultSuccessUrl("/index")
                     .and()
                 .logout()
                     .invalidateHttpSession(true)

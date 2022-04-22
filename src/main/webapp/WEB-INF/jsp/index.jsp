@@ -1,14 +1,40 @@
 <jsp:include page="include/header.jsp" />
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 
     <div class="text-box">
         <h1>Welcome to FilmBuddies</h1>
-        <p>Share and review your favorite movies with friends. Sign up here to get started!</p>
-        <a href="/user/register" class="hero-btn">Sign Up</a>
-        <small>OR</small>
-        <a href="/login/login" class="hero-btn">Log In</a>
+        <sec:authorize access="!isAuthenticated()">
+            <p>Share and review your favorite movies with friends. Sign up here to get started!</p>
+            <a href="/user/register" class="hero-btn">Sign Up</a>
+            <small>OR</small>
+            <a href="/login/login" class="hero-btn">Log In</a>
+        </sec:authorize>
+
+        <p>How would you rate our site?</p>
+        <input type="radio" name="review" id="great"value="great">
+        <label for="great">Great</label><br>
+        <input type="radio" id="awesome"name="review" value="awesome">
+        <label for="awesome">Awesome</label><br>
+        <input type="radio" id="best" name="review"value="best">
+        <label for="best">The Best</label>
+
+        <p>Do you like movies?</p>
+        <input type="checkbox" id="choice1">
+        <label for="choice1"> Yes</label><br>
+
+        <label for="genre">Choose a genre:</label>
+
+        <select name="genre" id="genre">
+            <option >Horror</option>
+            <option >Action</option>
+            <option >Comedy</option>
+            <option >Romance</option>
+        </select>
     </div>
+
+
 </section>
 
 <section class="about">

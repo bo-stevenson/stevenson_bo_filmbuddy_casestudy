@@ -15,7 +15,7 @@ import javax.validation.ConstraintValidatorContext;
 
 public class TitleUniqueImpl implements ConstraintValidator<TitleUnique, String> {
 
-    public static final Logger LOG = LoggerFactory.getLogger(EmailUniqueImpl.class);
+    public static final Logger LOG = LoggerFactory.getLogger(TitleUniqueImpl.class);
 
     @Autowired
     private MovieDAO movieDao;
@@ -31,11 +31,15 @@ public class TitleUniqueImpl implements ConstraintValidator<TitleUnique, String>
         }
         Movie movie = movieDao.findByTitle(value);
 
+        if(movie == null){
+            return ( movie == null );
+        }
         if (movie.getTitle().equals(value)){
             return true;
-        }
+        } else{
 
         return ( movie == null );
+        }
     }
 
 

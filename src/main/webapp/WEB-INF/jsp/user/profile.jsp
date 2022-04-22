@@ -15,7 +15,6 @@
                 <ul>
 
                     <li class="selectedLink" name="movies">Favorite Movies</li>
-                    <li name="following">Following</li>
                     <li name="followers">Followers</li>
 
                 </ul>
@@ -48,33 +47,6 @@
                         </tr>
                     </c:forEach>
 
-
-                </table>
-            </div>
-        </div>
-
-        <div class="card following" data-following>
-
-            <div class="title">Following</div>
-
-            <div class="content">
-
-                <table class="table content-table">
-
-                    <tr scope="row">
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                    </tr>
-
-                    <c:forEach items="${following}" var="following">
-                        <tr scope="row">
-                            <td>${following.email}</td>
-                            <td>${following.firstName}</td>
-                            <td>${following.lastName}</td>
-                            <td><a class="btn" href="/follower/profile/${following.id}">Profile</a></td>
-                        </tr>
-                    </c:forEach>
 
                 </table>
             </div>

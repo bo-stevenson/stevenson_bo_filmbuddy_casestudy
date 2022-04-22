@@ -42,6 +42,9 @@
                     <sec:authorize access="hasAuthority('ADMIN')">
                         <td><a class="btn" href="/movie/edit/${movie.id}">Edit Movie</a></td>
                     </sec:authorize>
+                    <sec:authorize access="hasAuthority('ADMIN')">
+                        <td><a class="btn" href="/movie/delete/${movie.id}">Delete Movie</a></td>
+                    </sec:authorize>
 
 
                 </tr>

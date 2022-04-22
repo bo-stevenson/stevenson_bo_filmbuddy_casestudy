@@ -1,6 +1,7 @@
 package com.teksystems.casestudy.database.dao;
 
 
+import com.teksystems.casestudy.database.entity.Follower;
 import com.teksystems.casestudy.database.entity.UserRole;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,24 +17,29 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class UserDAOTest {
 
-    @Autowired UserDAO userDAO;
+    @Autowired
+    UserDAO userDAO;
 
-    @Autowired UserRoleDAO userRoleDAO;
+    @Autowired
+    UserRoleDAO userRoleDAO;
+
+    @Autowired
+    FollowerDAO followerDAO;
 
     @Test
     @Order(1)
-    public void getUserTest(){
-    User expected = new User();
-    expected.setId(1);
+    public void getUserTest() {
+        User expected = new User();
+        expected.setId(1);
 
 
-    User actual = userDAO.findById(1);
-    Assertions.assertEquals(expected.getId(), actual.getId());
+        User actual = userDAO.findById(1);
+        Assertions.assertEquals(expected.getId(), actual.getId());
     }
 
     @Test
     @Order(2)
-    public void createUserTest(){
+    public void createUserTest() {
         User expected = new User();
 
         expected.setId(1);
@@ -44,32 +50,16 @@ public class UserDAOTest {
         expected.setCreateDate(new Date());
 
         userDAO.save(expected);
-        Assertions.assertTrue(expected.getId()>0);
+        Assertions.assertTrue(expected.getId() > 0);
     }
 
     @Test
-    public void updateUserTest(){
+    public void updateUserTest() {
 
         User actual = userDAO.findById(1);
         actual.setFirstName("updated");
         Assertions.assertEquals("updated", actual.getFirstName());
     }
-
-
-    @Test
-    public void deleteUserTest(){
-
-        User actual = userDAO.findById(1);
-        List<UserRole> roles = userRoleDAO.findByUserId(1);
-
-        for(UserRole role: roles) {
-            userRoleDAO.delete(role);
-        }
-
-        userDAO.delete(actual);
-        Assertions.assertNull(userDAO.findById(1));
-    }
-
 
 }
 

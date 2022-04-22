@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <c:if test="${fn:contains(pageContext.request.requestURI, '/movie/movieSearch')}">
-        <link rel="stylesheet" href="../../pub/css/search.css">
+        <link rel="stylesheet" href="../../../pub/css/search.css">
     </c:if>
     <c:if test="${fn:contains(pageContext.request.requestURI, '/index')}">
         <link rel="stylesheet" href="pub/css/index.css">
@@ -61,12 +61,7 @@
         </c:choose>
 
 
-        <sec:authorize access="!isAuthenticated()">
             <a class="brand" href="/index">FilmBuddies</a>
-        </sec:authorize>
-        <sec:authorize access="isAuthenticated()">
-            <a class="brand" href="/user/profile">FilmBuddies</a>
-        </sec:authorize>
 
 
         <div class="nav-links" id="navLinks">
@@ -76,8 +71,13 @@
             </sec:authorize>
 
             <ul>
+
                 <sec:authorize access="isAuthenticated()">
-                    <li><a href="/user/profile">Home</a></li>
+                    <li><a href="/index">Home</a></li>
+                </sec:authorize>
+
+                <sec:authorize access="isAuthenticated()">
+                    <li><a href="/user/profile">My Profile</a></li>
                 </sec:authorize>
 
                 <sec:authorize access="isAuthenticated()">

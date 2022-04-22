@@ -134,10 +134,12 @@ nav .fa{
     .table th{
         display: none;
     }
-    .table, .table tr, .table td{
+    .table, .table tr, .table td, tbody{
         display: block;
         width: 100%;
     }
+
+
 
     .nav-links ul li{
         display: block;
